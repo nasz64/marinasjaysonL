@@ -17,7 +17,7 @@
     <style>
         /* Color Palette Setup */
         :root {
-            --primary-red: #ff2e2e;       /* Bright Red Accent */
+            --primary-red: #ff2e2e;      /* Bright Red Accent */
             --dark-red: #8b0000;          /* Darker Red for Borders */
             --bg-dark: #0f0f0f;           /* Deep Black Background */
             --card-bg: #1a1a1a;           /* Dark Charcoal for Cards */
@@ -196,6 +196,46 @@
             text-align: center;
         }
 
+        /* Projects Section Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background-color: #121212;
+            border-radius: 6px;
+            border: 1px solid var(--card-border);
+            overflow: hidden;
+            transition: border-color 0.2s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--primary-red);
+        }
+
+        .project-img-container {
+            width: 100%;
+            height: 150px;
+            background-color: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .project-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 15px;
+        }
+
         /* Education & Experience Lists */
         .timeline-item {
             margin-bottom: 20px;
@@ -287,6 +327,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -361,6 +402,45 @@
                     <div>
                         <h3>Professional Driver</h3>
                         <p>Licensed driver</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section (3 Picture Placeholders) -->
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-img-container">
+                        <img src="project1.jpg" alt="Project 1">
+                    </div>
+                    <div class="project-info">
+                        <h3>Project One</h3>
+                        <p>A log in Form, improved using Style and CSS.</p>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-img-container">
+                        <img src="project2.jpg" alt="Project 2">
+                    </div>
+                    <div class="project-info">
+                        <h3>Project Two</h3>
+                        <p>A Submit Form that needed a Required code.</p>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-img-container">
+                        <img src="project3.jpg" alt="Project 3">
+                    </div>
+                    <div class="project-info">
+                        <h3>Project Three</h3>
+                        <p>A code that using Form looking like an Excel.</p>
                     </div>
                 </div>
             </div>
