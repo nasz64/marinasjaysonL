@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jayson L. Mariñas - Portfolio</title>
+
+    <meta property="og:title" content="Jayson L. Mariñas | My Portfolio">
+    <meta property="og:description" content="Welcome to my personal portfolio! I am an IT student that likes to code.">
+    <meta property="og:image" content="https://nasz64.github.io/Jayson-L.-Mari-as/profile.jpg">
+    <meta property="og:url" content="https://nasz64.github.io/Jayson-L.-Mari-as/">
+
+    <!-- Font Awesome Icons CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Simple CSS Styling (Red & Black Theme) -->
+    <style>
+        /* Color Palette Setup */
+        :root {
+            --primary-red: #ff2e2e;       /* Bright Red Accent */
+            --dark-red: #8b0000;          /* Darker Red for Borders */
+            --bg-dark: #0f0f0f;           /* Deep Black Background */
+            --card-bg: #1a1a1a;           /* Dark Charcoal for Cards */
+            --card-border: #2a2a2a;       /* Card Border */
+            --text-main: #f5f5f5;         /* Main White Text */
+            --text-muted: #b3b3b3;        /* Light Gray Subtext */
+        }
+
+        /* Basic Page Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Sticky Navigation Bar */
+        header {
+            background-color: #121212;
+            border-bottom: 2px solid var(--primary-red);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--primary-red);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: bold;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-red);
+        }
+
+        /* Container for content */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* General Section Layout */
+        section {
+            background-color: var(--card-bg);
+            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid var(--card-border);
+            border-left: 4px solid var(--primary-red);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 34px;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: var(--primary-red);
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: var(--text-main);
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Home Section */
+        #home {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        /* Circular Profile Picture Styling */
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%; /* Makes the image perfectly round */
+            object-fit: cover;  /* Prevents image distortion */
+            border: 4px solid var(--primary-red);
+            box-shadow: 0 0 15px rgba(255, 46, 46, 0.4);
+            margin-bottom: 20px;
+        }
+
+        #home .subtitle {
+            font-size: 18px;
+            color: var(--primary-red);
+            font-weight: bold;
+        }
+
+        /* About Section formatting */
+        .about-text {
+            margin-bottom: 15px;
+        }
+
+        /* Skills Section Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-item {
+            background-color: #121212;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid var(--card-border);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: border-color 0.2s ease;
+        }
+
+        .skill-item:hover {
+            border-color: var(--primary-red);
+        }
+
+        .skill-item i {
+            font-size: 24px;
+            color: var(--primary-red);
+            width: 30px;
+            text-align: center;
+        }
+
+        /* Education & Experience Lists */
+        .timeline-item {
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 2px solid var(--primary-red);
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .date {
+            font-size: 13px;
+            color: var(--primary-red);
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        /* Contact Section */
+        .contact-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .contact-item {
+            background-color: #121212;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid var(--card-border);
+            transition: border-color 0.2s ease;
+        }
+
+        .contact-item:hover {
+            border-color: var(--primary-red);
+        }
+
+        .contact-item a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            word-break: break-all;
+        }
+
+        .contact-item i {
+            color: var(--primary-red);
+            font-size: 18px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 14px;
+            border-top: 1px solid var(--card-border);
+            background-color: #121212;
+            margin-top: 20px;
+        }
+
+        /* Mobile Responsive Adjustments */
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <div class="logo">Jayson L. Mariñas</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Container -->
+    <main>
+
+        <!-- Home Section -->
+        <section id="home">
+            <!-- Round Profile Picture -->
+            <img src="profile.jpg" alt="Jayson L. Mariñas" class="profile-img">
+            <h1>Jayson L. Mariñas</h1>
+            <p class="subtitle">I am an IT student that likes to code</p>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p class="about-text">What's up! name's Jayson L. Mariñas, im an it student.</p>
+            <p class="about-text">Welcome to my personal portfolio! I am a dedicated and detail-oriented information Technology person with a humbly good foundation in computer systems, networking, and programming. I enjoy solving technical problems, learning new things and mostly working on practical projects.</p>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <i class="fa-solid fa-desktop"></i>
+                    <div>
+                        <h3>Microsoft 365</h3>
+                        <p>Word, Excel, Powerpoint, Outlook</p>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <i class="fa-solid fa-arrows-spin"></i>
+                    <div>
+                        <h3>Adaptability</h3>
+                        <p>Quickly adjusts to new environments</p>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <i class="fa-solid fa-puzzle-piece"></i>
+                    <div>
+                        <h3>Problem Solving</h3>
+                        <p>Finding efficient solutions</p>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <i class="fa-solid fa-users"></i>
+                    <div>
+                        <h3>Team Management</h3>
+                        <p>Good communication & leadership</p>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <i class="fa-solid fa-list-check"></i>
+                    <div>
+                        <h3>Multitasking</h3>
+                        <p>Handles multiple duties effectively</p>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <i class="fa-solid fa-car"></i>
+                    <div>
+                        <h3>Professional Driver</h3>
+                        <p>Licensed driver</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2>Education</h2>
+            <div class="timeline-item">
+                <div class="date">2017 - 2021</div>
+                <h3>Justice Cecilia Muñoz Palma Highschool</h3>
+                <p>High School Graduate with Diploma</p>
+            </div>
+            <div class="timeline-item">
+                <div class="date">2008 - 2017</div>
+                <h3>Melencio M. Castelo Elementary School</h3>
+                <p>Graduate</p>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="timeline-item">
+                <div class="date">September - June</div>
+                <h3>I.T. Consignor in Warehouse</h3>
+                <p>Managed inventory systems and provided IT technical support within the warehouse environment.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="date">March - August</div>
+                <h3>Concentrix Corp</h3>
+                <p>Customer Service Representative - Handled inbound and outbound customer inquiries for a local healthcare account</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <ul class="contact-list">
+                <li class="contact-item">
+                    <a href="mailto:jaysonlmarinas64@gmail.com">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>jaysonlmarinas64@gmail.com</span>
+                    </a>
+                </li>
+                <li class="contact-item">
+                    <a href="tel:09369775015">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>#09369775015</span>
+                    </a>
+                </li>
+                <li class="contact-item">
+                    <a href="https://www.facebook.com/jayson.marinas.7" target="_blank">
+                        <i class="fa-brands fa-facebook"></i>
+                        <span>Facebook Profile</span>
+                    </a>
+                </li>
+                <li class="contact-item">
+                    <a href="https://www.instagram.com/adrenalinkmh" target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
+                        <span>Instagram Profile</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; Jayson L. Mariñas. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
